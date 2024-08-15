@@ -2,7 +2,7 @@
   "name": "contact-management-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/ABHISHEK-ANGADI25/contact-management-app.git",
+  "homepage": "https://ABHISHEK-ANGADI25.github.io/contact-management-app",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
     "@tanstack/react-query": "^5.51.23",
