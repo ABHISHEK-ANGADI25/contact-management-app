@@ -10,9 +10,11 @@ interface ContactFormProps {
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ contactToEdit, onClose }) => {
-  const [name, setName] = useState(contactToEdit?.name || '');
+  const [firstName, setFirstName] = useState(contactToEdit?.firstName || '');
+  const [lastName, setLastName] = useState(contactToEdit?.lastName || '');
   const [email, setEmail] = useState(contactToEdit?.email || '');
   const [phone, setPhone] = useState(contactToEdit?.phone || '');
+  const [status, setStatus] = useState(contactToEdit?.status || '');
   
   const dispatch = useDispatch();
 
@@ -21,9 +23,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactToEdit, onClose }) => 
 
     const contact: Contact = {
       id: contactToEdit ? contactToEdit.id : Date.now().toString(),
-      name,
+      firstName,
+      lastName,
       email,
       phone,
+      status,
     };
 
     if (contactToEdit) {
@@ -38,13 +42,24 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactToEdit, onClose }) => 
   return (
     <form onSubmit={handleSubmit} className="bg-white p-4 shadow-md rounded">
       <div className="mb-4">
-        <label className="block text-gray-700">Name</label>
+        <label className="block text-gray-700">First Name</label>
         <input
           type="text"
           className="mt-1 block border rounded"
-          value={name}
+          value={firstName}
           placeholder='Enter the Name here'
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700">Last Name</label>
+        <input
+          type="text"
+          className="mt-1 block border rounded"
+          value={lastName}
+          placeholder='Enter the Name here'
+          onChange={(e) => setLastName(e.target.value)}
           required
         />
       </div>
@@ -69,6 +84,30 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactToEdit, onClose }) => 
           onChange={(e) => setPhone(e.target.value)}
           required
         />
+      </div>
+      <div className="mb-4">
+      <label className="mr-4">
+            <input
+              type="radio"
+              name="status"
+              value="Active"
+              checked={status === 'Active'}
+              onChange={(e) => setStatus(e.target.value)}
+              className="mr-2"
+            />
+            Active
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="status"
+              value="Inactive"
+              checked={status === 'Inactive'}
+              onChange={(e) => setStatus(e.target.value)}
+              className="mr-2"
+            />
+            Inactive
+          </label>
       </div>
       <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
         {contactToEdit ? 'Update Contact' : 'Add Contact'}

@@ -19,9 +19,10 @@ const ContactItem: React.FC<ContactItemProps> = ({ contact, onEdit }) => {
   return (
     <div className="flex justify-between items-center p-4 bg-gray-100 rounded mb-2 shadow-sm">
       <div>
-        <h3 className="font-bold text-lg">{contact.name}</h3>
+        <h3 className="font-bold text-lg">{contact.firstName}{contact.lastName}</h3>
         <p>{contact.email}</p>
         <p>{contact.phone}</p>
+        <p>{contact.status}</p>
       </div>
       <div>
         <button

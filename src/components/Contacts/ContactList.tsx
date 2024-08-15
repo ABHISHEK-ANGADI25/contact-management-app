@@ -1,10 +1,11 @@
 // src/components/Contacts/ContactList.tsx
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState }  from '../../redux/rootReducers';
-import { Contact } from '../../types/contacts';
+import { RootState } from '../../redux/rootReducers';
 import ContactItem from './ContactItem';
 import ContactForm from './ContactForm';
+import { Link } from 'react-router-dom';
+import { Contact } from '../../types/contacts';
 
 const ContactList: React.FC = () => {
   const contacts = useSelector((state: RootState) => state.contacts.contacts);
@@ -25,6 +26,13 @@ const ContactList: React.FC = () => {
     <div>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold">Contacts</h2>
+        <Link to="/">
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded"
+          >
+            Charts and Maps
+          </button>
+        </Link>
         <button
           onClick={() => openForm()}
           className="bg-green-500 text-white px-4 py-2 rounded"

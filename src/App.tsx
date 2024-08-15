@@ -1,17 +1,23 @@
 // src/App.tsx
 import React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ContactsPage from './pages/ContactsPage';
+import Dashboard from './pages/Dashboard';
+import Contacts from './pages/ContactsPage';
 
-function App() {
+const queryClient = new QueryClient();
+
+const App: React.FC = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<ContactsPage />} />
-        {/* Other routes */}
-      </Routes>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/contacts" element={<Contacts />} />
+        </Routes>
+      </Router>
+    </QueryClientProvider>
   );
-}
+};
 
 export default App;
