@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ABHISHEK-ANGADI25/contact-management-app.git/static/css/main.f870c4d1.css",
+    "main.js": "/ABHISHEK-ANGADI25/contact-management-app.git/static/js/main.a483a828.js",
+    "index.html": "/ABHISHEK-ANGADI25/contact-management-app.git/index.html",
+    "main.f870c4d1.css.map": "/ABHISHEK-ANGADI25/contact-management-app.git/static/css/main.f870c4d1.css.map",
+    "main.a483a828.js.map": "/ABHISHEK-ANGADI25/contact-management-app.git/static/js/main.a483a828.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f870c4d1.css",
+    "static/js/main.a483a828.js"
+  ]
+}
