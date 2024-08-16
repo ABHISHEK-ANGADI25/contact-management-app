@@ -1,14 +1,16 @@
 // src/components/Contacts/ContactForm.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact, updateContact } from '../../redux/slices/contactsSlices';
 import { Contact } from '../../types/contacts';
 
+// Type for ContactForm
 interface ContactFormProps {
   contactToEdit?: Contact | null;
   onClose: () => void;
 }
 
+// Functional Component for ContactForm
 const ContactForm: React.FC<ContactFormProps> = ({ contactToEdit, onClose }) => {
   const [firstName, setFirstName] = useState(contactToEdit?.firstName || '');
   const [lastName, setLastName] = useState(contactToEdit?.lastName || '');
@@ -18,6 +20,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactToEdit, onClose }) => 
   
   const dispatch = useDispatch();
 
+  // Submit function for adding the data into tables
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -31,9 +34,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactToEdit, onClose }) => 
     };
 
     if (contactToEdit) {
-      dispatch(updateContact(contact));
+      dispatch(updateContact(contact)); // Submit Button will change to Update
     } else {
-      dispatch(addContact(contact));
+      dispatch(addContact(contact)); // Submit Button will change to Add New
     }
 
     onClose();
@@ -116,4 +119,4 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactToEdit, onClose }) => 
   );
 };
 
-export default ContactForm;
+export default ContactForm; // exporting ContactForm

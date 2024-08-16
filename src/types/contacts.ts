@@ -1,3 +1,4 @@
+// Interface type for Contact
 export interface Contact {
     id: string;
     firstName: string;

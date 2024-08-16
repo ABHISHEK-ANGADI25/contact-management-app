@@ -4,14 +4,17 @@ import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/slices/contactsSlices';
 import { Contact } from '../../types/contacts';
 
+// Creating Type for ContactItem
 interface ContactItemProps {
   contact: Contact;
   onEdit: (contact: Contact) => void;
 }
 
+// Functional component for ContactItem
 const ContactItem: React.FC<ContactItemProps> = ({ contact, onEdit }) => {
   const dispatch = useDispatch();
 
+  // Delete function for the delete contacts
   const handleDelete = () => {
     dispatch(deleteContact(contact.id));
   };
@@ -22,7 +25,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ contact, onEdit }) => {
         <h3 className="font-bold text-lg">{contact.firstName}{contact.lastName}</h3>
         <p>{contact.email}</p>
         <p>{contact.phone}</p>
-        <p>{contact.status}</p>
+        <p><span className={contact.status === "Active" ? "bg-green-500" : "bg-red-500"}>{contact.status}</span></p>
       </div>
       <div>
         <button
@@ -42,4 +45,4 @@ const ContactItem: React.FC<ContactItemProps> = ({ contact, onEdit }) => {
   );
 };
 
-export default ContactItem;
+export default ContactItem; // exporting ContactItem

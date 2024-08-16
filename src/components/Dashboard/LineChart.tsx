@@ -60,4 +60,4 @@ const LineChart: React.FC = () => {
   return <Line data={chartData} />;
 };
 
-export default LineChart;
+export default LineChart; // exporting LineChart

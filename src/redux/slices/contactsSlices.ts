@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+// Interface type for Contact
 interface Contact {
   id: string;
   firstName: string;
@@ -9,14 +10,17 @@ interface Contact {
   status: string;
 }
 
+// Interface type for ContactState
 interface ContactsState {
   contacts: Contact[];
 }
 
+// Initialising the ContactState
 const initialState: ContactsState = {
   contacts: [],
 };
 
+// Creating a reducer-slice for the contactsSlice
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
@@ -35,4 +39,4 @@ const contactsSlice = createSlice({
 });
 
 export const { addContact, deleteContact, updateContact } = contactsSlice.actions;
-export default contactsSlice.reducer;
+export default contactsSlice.reducer; // exporting the reducer-slice

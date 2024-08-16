@@ -4,6 +4,7 @@ import LineChart from '../components/Dashboard/LineChart';
 import Map from '../components/Dashboard/Map';
 import { Link } from 'react-router-dom';
 
+// Functional Component for Dashboard
 const Dashboard: React.FC = () => {
 
     return (
@@ -32,4 +33,4 @@ const Dashboard: React.FC = () => {
     );
 };
 
-export default Dashboard;
+export default Dashboard; // exporting Dashboard

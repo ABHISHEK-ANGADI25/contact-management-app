@@ -7,16 +7,19 @@ import ContactForm from './ContactForm';
 import { Link } from 'react-router-dom';
 import { Contact } from '../../types/contacts';
 
+// Functional Component for ContactList
 const ContactList: React.FC = () => {
   const contacts = useSelector((state: RootState) => state.contacts.contacts);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [contactToEdit, setContactToEdit] = useState<Contact | null>(null);
 
+  // Function to open Form for adding contacts
   const openForm = (contact?: Contact) => {
     setContactToEdit(contact || null);
     setIsFormOpen(true);
   };
 
+  // Function to close form of adding contacts
   const closeForm = () => {
     setIsFormOpen(false);
     setContactToEdit(null);
@@ -50,4 +53,4 @@ const ContactList: React.FC = () => {
   );
 };
 
-export default ContactList;
+export default ContactList; // exporting ContactList
